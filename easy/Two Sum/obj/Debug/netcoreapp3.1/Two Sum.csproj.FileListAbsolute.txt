@@ -1,0 +1,14 @@
+/Users/ravdi/LeetCode/easy/Two Sum/bin/Debug/netcoreapp3.1/Two Sum
+/Users/ravdi/LeetCode/easy/Two Sum/bin/Debug/netcoreapp3.1/Two Sum.deps.json
+/Users/ravdi/LeetCode/easy/Two Sum/bin/Debug/netcoreapp3.1/Two Sum.runtimeconfig.json
+/Users/ravdi/LeetCode/easy/Two Sum/bin/Debug/netcoreapp3.1/Two Sum.runtimeconfig.dev.json
+/Users/ravdi/LeetCode/easy/Two Sum/bin/Debug/netcoreapp3.1/Two Sum.dll
+/Users/ravdi/LeetCode/easy/Two Sum/bin/Debug/netcoreapp3.1/Two Sum.pdb
+/Users/ravdi/LeetCode/easy/Two Sum/obj/Debug/netcoreapp3.1/Two Sum.csproj.AssemblyReference.cache
+/Users/ravdi/LeetCode/easy/Two Sum/obj/Debug/netcoreapp3.1/Two Sum.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ravdi/LeetCode/easy/Two Sum/obj/Debug/netcoreapp3.1/Two Sum.AssemblyInfoInputs.cache
+/Users/ravdi/LeetCode/easy/Two Sum/obj/Debug/netcoreapp3.1/Two Sum.AssemblyInfo.cs
+/Users/ravdi/LeetCode/easy/Two Sum/obj/Debug/netcoreapp3.1/Two Sum.csproj.CoreCompileInputs.cache
+/Users/ravdi/LeetCode/easy/Two Sum/obj/Debug/netcoreapp3.1/Two Sum.dll
+/Users/ravdi/LeetCode/easy/Two Sum/obj/Debug/netcoreapp3.1/Two Sum.pdb
+/Users/ravdi/LeetCode/easy/Two Sum/obj/Debug/netcoreapp3.1/Two Sum.genruntimeconfig.cache
