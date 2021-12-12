@@ -1,0 +1,14 @@
+/Users/ravdi/LeetCode.Tasks/easy/Palindrome Number/bin/Debug/netcoreapp3.1/Palindrome Number
+/Users/ravdi/LeetCode.Tasks/easy/Palindrome Number/bin/Debug/netcoreapp3.1/Palindrome Number.deps.json
+/Users/ravdi/LeetCode.Tasks/easy/Palindrome Number/bin/Debug/netcoreapp3.1/Palindrome Number.runtimeconfig.json
+/Users/ravdi/LeetCode.Tasks/easy/Palindrome Number/bin/Debug/netcoreapp3.1/Palindrome Number.runtimeconfig.dev.json
+/Users/ravdi/LeetCode.Tasks/easy/Palindrome Number/bin/Debug/netcoreapp3.1/Palindrome Number.dll
+/Users/ravdi/LeetCode.Tasks/easy/Palindrome Number/bin/Debug/netcoreapp3.1/Palindrome Number.pdb
+/Users/ravdi/LeetCode.Tasks/easy/Palindrome Number/obj/Debug/netcoreapp3.1/Palindrome Number.csproj.AssemblyReference.cache
+/Users/ravdi/LeetCode.Tasks/easy/Palindrome Number/obj/Debug/netcoreapp3.1/Palindrome Number.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ravdi/LeetCode.Tasks/easy/Palindrome Number/obj/Debug/netcoreapp3.1/Palindrome Number.AssemblyInfoInputs.cache
+/Users/ravdi/LeetCode.Tasks/easy/Palindrome Number/obj/Debug/netcoreapp3.1/Palindrome Number.AssemblyInfo.cs
+/Users/ravdi/LeetCode.Tasks/easy/Palindrome Number/obj/Debug/netcoreapp3.1/Palindrome Number.csproj.CoreCompileInputs.cache
+/Users/ravdi/LeetCode.Tasks/easy/Palindrome Number/obj/Debug/netcoreapp3.1/Palindrome Number.dll
+/Users/ravdi/LeetCode.Tasks/easy/Palindrome Number/obj/Debug/netcoreapp3.1/Palindrome Number.pdb
+/Users/ravdi/LeetCode.Tasks/easy/Palindrome Number/obj/Debug/netcoreapp3.1/Palindrome Number.genruntimeconfig.cache
