@@ -9,29 +9,28 @@ namespace Merge_Two_Sorted_Lists
     {
         static void Main(string[] args)
         {
-            Solution.MergeTwoListshhhhh(new List<int> { 1, 2, 4 }, new List<int> { 1, 3, 4 });
-            Solution.MergeTwoListshhhhh(new List<int> { }, new List<int> { });
-            Solution.MergeTwoListshhhhh(new List<int> { }, new List<int> { 0 });
-            Solution.MergeTwoListshhhhh(new List<int> { 1, 2, 4, 7, 10 }, new List<int> { 1, 3, 4 });
-            ListNode list1 = new ListNode();
+            ListNode[] noda = new ListNode{
+                new ListNode = 
+
+            };
         }
-        
+
     }
 
     public class ListNode
+    {
+        public int val;
+        public ListNode next;
+        public ListNode(int val = 0, ListNode next = null)
         {
-            public int val;
-            public ListNode next;
-            public ListNode(int val = 0, ListNode next = null)
-            {
-                this.val = val;
-                this.next = next;
-            }
+            this.val = val;
+            this.next = next;
         }
+    }
 
     public class Solution
     {
-                public ListNode MergeTwoLists(ListNode list1, ListNode list2)
+        public ListNode MergeTwoLists(ListNode list1, ListNode list2)
         {
 
         }
