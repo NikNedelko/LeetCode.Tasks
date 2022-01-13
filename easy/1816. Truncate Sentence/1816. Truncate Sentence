@@ -1,0 +1,13 @@
+1816. Truncate Sentence
+public class Solution {
+    public string TruncateSentence(string s, int k) {
+        var splStr = s.Split(' ');
+        var sb = new StringBuilder();
+        for(int i =0;i<k;i++){
+            if(i!=0)
+                sb.Append(" ");
+            sb.Append(splStr[i]);
+        }
+        return sb.ToString();
+    }
+}

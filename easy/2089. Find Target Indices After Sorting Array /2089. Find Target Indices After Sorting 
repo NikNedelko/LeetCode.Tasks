@@ -1,0 +1,11 @@
+2089. Find Target Indices After Sorting Array
+public class Solution {
+    public IList<int> TargetIndices(int[] nums, int target) {
+        Array.Sort(nums);
+        IList<int> list = new List<int>();
+        for(int i = 0; i<nums.Length;i++)
+            if(nums[i]==target)
+                list.Add(i);
+        return list;
+    }
+}

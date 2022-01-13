@@ -1,0 +1,13 @@
+2006. Count Number of Pairs With Absolute Difference K
+
+public class Solution {
+    public int CountKDifference(int[] nums, int k) {
+        int ans = 0;
+        for(int i = 0; i<nums.Length;i++)
+            for(int j = i+1; j<nums.Length;j++)
+                if(nums[i]-nums[j]==k&&j<nums.Length
+                  ||nums[j]-nums[i]==k&&j<nums.Length)
+                    ans++;
+        return ans;
+    }
+}
