@@ -1,0 +1,25 @@
+public class OrderedStream {
+    
+    private string[] Stream;
+    private int pointer;
+    private int size;
+
+    public OrderedStream(int n)
+    {
+        Stream = new string[n];
+        size = n;
+    }
+    
+    public IList<string> Insert(int idKey, string value) {
+        Stream[idKey-1] = value;
+        if (Stream[pointer] == null) return new string[0];
+        var listForReturn = new List<string>();
+        while (Stream[pointer] != null)
+        {
+            listForReturn.Add(Stream[pointer]);
+            pointer++;
+            if (pointer == size) break;
+        }
+        return listForReturn.ToArray();
+    }
+}
