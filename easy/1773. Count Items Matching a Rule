@@ -1,0 +1,14 @@
+public class Solution {
+
+    private Dictionary<string,int> DictionaryOfCurrentKey = new()
+    {
+        {"type", 0},
+        {"color", 1},
+        {"name", 2}
+    };
+    
+    public int CountMatches(IList<IList<string>> items, string ruleKey, string ruleValue) {
+        var currentKey = DictionaryOfCurrentKey[ruleKey];
+        return items.Count(currentItemsGroup => ruleValue == currentItemsGroup[currentKey]);
+    }
+}
