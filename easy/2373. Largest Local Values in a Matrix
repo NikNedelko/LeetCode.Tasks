@@ -1,0 +1,62 @@
+public class Solution {
+
+    public int[][] LargestLocal(int[][] grid)
+    {
+        var result = ArrayInitializer(new int[grid.Length - 2][]);
+        var rowEnd = grid.Length - 2;
+        var columnEnd = grid.Length - 2;
+        var listOfMaxValues = new List<int>();
+        
+        for (int column = 1, row = 1;  rowEnd >= row; column++)
+        {
+            if (column > columnEnd)
+            {
+                result = AddNewArrayToResult(listOfMaxValues, row - 1, result);
+                column = 0;
+                row++;
+                listOfMaxValues.Clear();
+                continue;
+            }
+            listOfMaxValues.Add(MaxValueAroundPoint(grid, row, column));
+        }
+        
+        return result;
+    }
+
+    private int MaxValueAroundPoint(int[][] grid, int row, int column)
+    {
+        var valuesFromGrid = new int[9]
+        {
+            grid[row - 1][column - 1],
+            grid[row - 1][column],
+            grid[row - 1][column + 1],
+
+            grid[row][column - 1],
+            grid[row][column],
+            grid[row][column + 1],
+
+            grid[row + 1][column - 1],
+            grid[row + 1][column],
+            grid[row + 1][column + 1],
+        };
+        var preResult = valuesFromGrid.ToList();
+        return preResult.Max();
+    }
+
+    private int[][] ArrayInitializer(int[][] array)
+    {
+        for (int i = 0; i <= array.Length - 1; i++)
+        {
+            array[i] = new int[array.Length];
+        }
+
+        return array;
+    }
+    
+    private int[][] AddNewArrayToResult(List<int> list, int rowInArray, int[][] array)
+    {
+        array[rowInArray] = list.ToArray();
+
+        return array;
+    }
+}
