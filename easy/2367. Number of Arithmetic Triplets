@@ -1,0 +1,25 @@
+public class Solution {
+    public int ArithmeticTriplets(int[] nums, int diff) {
+        var counterOfDiff = 0;
+        for (var i = nums.Length-1; i >= 0; i--)
+        {
+            for (int j = nums.Length - 2; j >= 0; j--)
+            {
+                if (nums[i]-nums[j]==diff)
+                {
+                    for (int k = j-1; 0 <= k; k--)
+                    {
+                        if (nums[j]-nums[k]==diff)
+                        {
+                            counterOfDiff++;
+                            break;
+                        }
+                    }
+                }
+                
+            }
+        }
+
+        return counterOfDiff;
+    }
+}
