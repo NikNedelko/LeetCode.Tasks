@@ -1,0 +1,29 @@
+O(n)
+
+var dictionary = new Dictionary<int, string>();
+for (int i = 0; i < heights.Length; i++)
+{
+    dictionary.Add(heights[i],names[i]);
+}
+var result = dictionary.OrderByDescending(i => i.Key).ToArray();
+return result.Select(i=>i.Value).ToArray();
+
+O(n*n)
+
+var result = new string[names.Length];
+var position = 0;
+for (int i = 0; i < heights.Length; i++)
+{
+    for (int j = 0; j < heights.Length; j++)
+    {
+        if (heights[i]>heights[j])
+        {
+            position++;
+        }
+    }
+
+    result[position] = names[i];
+    position = 0;
+}
+Array.Reverse(result);
+return result;
