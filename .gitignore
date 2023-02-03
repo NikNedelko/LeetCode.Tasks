@@ -2,4 +2,4 @@
 bin
 obj
 *.csproj
-.DS_Store
+DS_Store
