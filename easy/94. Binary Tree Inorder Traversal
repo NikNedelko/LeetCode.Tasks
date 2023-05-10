@@ -1,0 +1,16 @@
+public class Solution {
+
+    public IList<int> InorderTraversal(TreeNode root) {
+        var list = new List<int>();
+        RecursiveMethod(list,root);
+        return list;
+    }
+
+    private  void RecursiveMethod(IList<int> list, TreeNode root){
+        if(root == null) return;
+        RecursiveMethod(list, root.left);
+        list.Add(root.val);
+        RecursiveMethod(list, root.right);
+    }
+}
+
