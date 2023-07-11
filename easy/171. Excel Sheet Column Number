@@ -1,0 +1,9 @@
+public class Solution {
+    public int TitleToNumber(string columnTitle) {
+        int count = 0;
+        for(int i = 0; i < columnTitle.Length; i++){
+            count = ((count * 26) + ((int)columnTitle[i] - 64));
+        }
+        return count;
+    }
+}
