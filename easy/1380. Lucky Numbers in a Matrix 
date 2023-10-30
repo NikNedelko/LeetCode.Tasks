@@ -1,0 +1,37 @@
+public class Solution {
+    public IList<int> LuckyNumbers (int[][] matrix) {
+        var result = new List<int>();
+        for (int i = 0; i < matrix.Length; i++)
+        {
+            var smallestNumberInRow = matrix[i][0];
+            var indexOfSmallestNumberInRowX = 0;
+
+            for (int j = 0; j < matrix[i].Length; j++)
+            {
+                if (matrix[i][j] < smallestNumberInRow)
+                {
+                    smallestNumberInRow = matrix[i][j];
+                    indexOfSmallestNumberInRowX = j;
+                }
+            }
+
+            var biggestNumberInColumn = matrix[0][indexOfSmallestNumberInRowX];
+            var indexOfBiggestNumberInColumn = 0;
+
+            for (int r = 0; r < matrix.Length; r++)
+            {
+                if (matrix[r][indexOfSmallestNumberInRowX] > biggestNumberInColumn)
+                {
+                    biggestNumberInColumn = matrix[r][indexOfSmallestNumberInRowX];
+                    indexOfBiggestNumberInColumn = r;
+                }
+            }
+
+            if (smallestNumberInRow == biggestNumberInColumn
+                && i == indexOfBiggestNumberInColumn)
+                result.Add(smallestNumberInRow);
+        }
+
+        return result;
+    }
+}
