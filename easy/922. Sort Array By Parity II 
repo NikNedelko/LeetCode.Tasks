@@ -1,0 +1,32 @@
+public class Solution {
+    public int[] SortArrayByParityII(int[] nums) {
+        var result = new List<int>();
+
+        var oddPointer = 0;
+        var evenPointer = 0;
+        var isEven = true;
+
+        while(true){
+            if(isEven && evenPointer < nums.Length){
+                if(nums[evenPointer] % 2 == 0){
+                    result.Add(nums[evenPointer]);
+                    isEven = false;
+                }
+                evenPointer++;
+            }
+            else if(oddPointer < nums.Length){
+                if(nums[oddPointer] % 2 != 0){
+                    result.Add(nums[oddPointer]);
+                    isEven = true;
+                }
+                oddPointer++;
+            }
+
+            if (oddPointer < nums.Length == false && evenPointer < nums.Length == false)
+            {
+                break;
+            }
+        }
+        return result.ToArray();
+    }
+}
