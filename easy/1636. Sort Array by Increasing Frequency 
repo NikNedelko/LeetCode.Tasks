@@ -1,0 +1,50 @@
+public class Solution {
+    public int[] FrequencySort(int[] nums) {
+        var dict = new Dictionary<int, int>();
+
+        foreach (var num in nums)
+        {
+            if (!dict.ContainsKey(num))
+            {
+                dict.Add(num, 1);
+            }
+            else
+            {
+                dict[num]++;
+            }
+        }
+
+        var result = new List<int>();
+        var orderedPairs = dict.OrderBy(x => x.Value);
+        var skipList = new List<int>();
+        
+        foreach (var num in orderedPairs)
+        {
+            if(skipList.Contains(num.Key))
+                continue;
+            if (dict.Count(x => x.Value == num.Value) > 1)
+            {
+                var collection = dict
+                    .Where(x => x.Value == num.Value)
+                    .OrderByDescending(x => x.Key);
+                foreach (var pair in collection)
+                {
+                    for (int i = 0; i < pair.Value; i++)
+                    {
+                        result.Add(pair.Key);
+                    }
+                    skipList.Add(pair.Key);
+                }
+                continue;
+            }
+
+            for (int i = 0; i < num.Value; i++)
+            {
+                result.Add(num.Key);
+            }
+            skipList.Add(num.Key);
+        }
+
+        return result.ToArray();
+    }
+}
