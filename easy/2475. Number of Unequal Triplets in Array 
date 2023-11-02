@@ -1,0 +1,28 @@
+public class Solution {
+    public int UnequalTriplets(int[] nums) {
+        var map = new Dictionary<int, int>();
+        var n = nums.Length;
+
+        foreach (var num in nums)
+        {
+            if (map.ContainsKey(num))
+            {
+                map[num]++;
+            }
+            else
+            {
+                map[num] = 1;
+            }
+        }
+
+        var result = 0;
+        foreach (var count in map.Values)
+        {
+            var count1 = Math.Max((n - count) * count * (count - 1) / 2, 0);
+            var count2 = Math.Max(count * (count - 1) * (count - 2) / 6, 0);
+            result += count1 + count2;
+        }
+        
+        return n * (n - 1) * (n - 2) / 6 - result;
+    }
+}
