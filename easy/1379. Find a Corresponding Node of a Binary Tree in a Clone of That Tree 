@@ -1,0 +1,27 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     public int val;
+ *     public TreeNode left;
+ *     public TreeNode right;
+ *     public TreeNode(int x) { val = x; }
+ * }
+ */
+
+public class Solution {
+    public TreeNode GetTargetCopy(TreeNode original, TreeNode cloned, TreeNode target) {
+        var targetValue = new TreeNode(-100000000);
+        RecursiveMethod(cloned, ref targetValue, target.val);
+        return targetValue;
+    }
+
+    public static void RecursiveMethod(TreeNode node, ref TreeNode targetValue, int val){
+        if(node == null) return;
+        RecursiveMethod(node.left, ref targetValue, val);
+        if(node.val == val)
+            targetValue = node;
+        RecursiveMethod(node.right, ref targetValue, val);
+        
+    }
+
+}
