@@ -1,0 +1,16 @@
+public class Solution {
+    public int SumIndicesWithKSetBits(IList<int> nums, int k) {
+        var result = 0;
+        for(int i = 0; i < nums.Count; i++){
+            var bin = Convert.ToString(i, 2);
+            var count = 0;
+            for(int j = 0; j < bin.Length; j++){
+                if(bin[j] == '1')
+                    count++;
+            }
+            if(count == k)
+                result += nums[i];
+        }
+        return result;
+    }
+}
