@@ -1,0 +1,35 @@
+public class Solution {
+    public string DecodeMessage(string key, string message) {
+        var dict = new Dictionary<char, char>();
+        var delay = 0;
+        for (int i = 97; i < 123 + delay; i++)
+        {
+            if (key[i - 97] == ' ')
+            {
+                delay++;
+                continue;
+            }
+
+            if (dict.ContainsKey(key[i - 97]))
+            {
+                delay++;
+            }
+            else
+                dict.Add(key[i - 97], Convert.ToChar(i - delay));
+        }
+
+        var sb = new StringBuilder();
+        foreach (var letter in message)
+        {
+            if (letter == ' ')
+            {
+                sb.Append(' ');
+                continue;
+            }
+
+            sb.Append(dict[letter]);
+        }
+
+        return sb.ToString();
+    }
+}
