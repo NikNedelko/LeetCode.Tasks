@@ -1,0 +1,20 @@
+public class Solution {
+    public int SumOfMultiples(int n) {
+        var result = 0;
+        for(int i = 1; i <= n; i++){
+            if(i % 3 == 0){
+                result += i;
+                continue;
+            }
+            if(i % 5 == 0){
+                result += i;
+                continue;
+            }
+            if(i % 7 == 0){
+                result += i;
+                continue;
+            }
+        }
+        return result;
+    }
+}
