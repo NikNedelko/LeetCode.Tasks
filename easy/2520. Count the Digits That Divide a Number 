@@ -1,0 +1,13 @@
+public class Solution {
+    public int CountDigits(int num) {
+        if(num < 10)
+            return 1;
+        var str = Convert.ToString(num);
+        var result = 0;
+        for(int i = 0; i < str.Length; i++){
+            if(num % Convert.ToInt32(Convert.ToString(str[i])) == 0)
+                result++;
+        }
+        return result;
+    }
+}
