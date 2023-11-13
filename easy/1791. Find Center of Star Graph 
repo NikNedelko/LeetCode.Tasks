@@ -1,0 +1,24 @@
+public class Solution {
+    public int FindCenter(int[][] edges) {
+        var dict = new Dictionary<int, int>();
+
+        foreach (var array in edges)
+        {
+            if (dict.ContainsKey(array[0]))
+                dict[array[0]]++;
+            else
+            {
+                dict.Add(array[0],1);
+            }
+            
+            if (dict.ContainsKey(array[1]))
+                dict[array[1]]++;
+            else
+            {
+                dict.Add(array[1],1);
+            }
+        }
+
+        return dict.OrderByDescending(x => x.Value).FirstOrDefault().Key;
+    }
+}
