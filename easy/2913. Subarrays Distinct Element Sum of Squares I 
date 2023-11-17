@@ -1,0 +1,21 @@
+public class Solution {
+    public int SumCounts(IList<int> nums) {
+        var result = 0;
+        var dict = new Dictionary<int, int>();
+        for(int i = 1; i < nums.Count + 1; i++){ // capacity
+            for(int j = 0; j < nums.Count; j++){ // range
+            
+                for(int k = j, m = 0; m < i; k++, m++){ // counting
+                    if (j + i > nums.Count) break;
+                    if(!dict.ContainsKey(nums[k]))
+                        dict.Add(nums[k], 1);
+                }
+
+                result += dict.Count * dict.Count;
+                dict.Clear();
+            }
+        }
+
+        return result;
+    }
+}
