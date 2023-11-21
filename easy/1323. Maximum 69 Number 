@@ -1,0 +1,12 @@
+public class Solution {
+    public int Maximum69Number (int num) {
+        var sb = new StringBuilder( Convert.ToString(num));
+        for(int i = 0 ; i < sb.Length; i++){
+            if(sb[i] == '6'){
+                sb[i] = '9';
+                break;
+            }
+        }
+        return Convert.ToInt32(sb.ToString());
+    }
+}
