@@ -1,0 +1,14 @@
+public class Solution {
+    public int MaximizeSum(int[] nums, int k) {
+        var max = nums[0];
+        foreach(var num in nums){
+            if(max < num)
+                max = num;
+        }
+        var result = 0;
+        for(int i = 0; i < k; i++){
+            result += max + i;
+        }
+        return result;
+    }
+}
