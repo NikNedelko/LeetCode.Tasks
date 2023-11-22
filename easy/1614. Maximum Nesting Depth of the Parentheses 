@@ -1,0 +1,16 @@
+public class Solution {
+    public int MaxDepth(string s) {
+        var count = 0;
+        var max = 0;
+        foreach(var item in s){
+            if(item == '(')
+                count++;
+            else if(item == ')')
+                count--;
+            if(count > max)
+                max = count;
+        }
+        
+        return max;
+    }
+}
