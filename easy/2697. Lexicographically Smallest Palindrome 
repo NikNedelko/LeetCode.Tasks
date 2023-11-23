@@ -1,0 +1,13 @@
+public class Solution {
+    public string MakeSmallestPalindrome(string s) {
+        var sb = new StringBuilder(s);
+        for(int i = 0, j = s.Length - 1; i < j; i++, j--){
+            if(s[i] != s[j])
+                if(s[i] < s[j])
+                    sb[j] = s[i];
+                else
+                    sb[i] = s[j];
+        }
+        return sb.ToString();
+    }
+}
