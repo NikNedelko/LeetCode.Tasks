@@ -1,0 +1,40 @@
+public class Solution {
+    public int DeleteGreatestValue(int[][] grid) {
+        var result = 0;
+        var index = 0;
+        var pivot = 0;
+
+        var newArray = new List<int>();
+        var maxNumbers = new List<int>();
+
+        while(grid[0].Length > 0)
+        {
+           for(int i = 0; i < grid.Length; i++)
+           {
+            pivot = grid[i][0];
+            index = 0;
+            
+            for(int j = 0; j < grid[i].Length; j++)
+            {
+                if(grid[i][j] > pivot)
+                {
+                    pivot = grid[i][j];
+                    index = j;
+                }
+                newArray.Add(grid[i][j]);
+            }
+            
+            newArray.RemoveAt(index);
+            grid[i] = newArray.ToArray();
+            newArray.Clear();
+
+            maxNumbers.Add(pivot);
+        }
+
+        result += maxNumbers.OrderByDescending(x => x).FirstOrDefault();
+        maxNumbers.Clear(); 
+        }
+
+        return result;
+    }
+}
