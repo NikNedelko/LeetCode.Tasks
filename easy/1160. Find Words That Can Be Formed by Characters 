@@ -1,0 +1,35 @@
+public class Solution {
+    public int CountCharacters(string[] words, string chars) {
+        var dict = new Dictionary<char,int>();
+        foreach(var letter in chars){
+            if(dict.ContainsKey(letter))
+                dict[letter]++;
+            else
+                dict.Add(letter,1);
+        }
+
+        var result = 0;
+
+        foreach(var word in words){
+            var newDict = dict.ToDictionary(entry => entry.Key, entry => entry.Value);
+            var length = word.Length;
+            var sb = new StringBuilder(word);
+            
+            for(int i = 0; i < sb.Length; i++){
+                if(!newDict.ContainsKey(sb[i])){
+                    break;
+                }
+                if(newDict.ContainsKey(sb[i]) && newDict[sb[i]] > 0){
+                    newDict[sb[i]]--;
+                    sb.Remove(i,1);
+                    i--;
+                }
+                
+            }
+            if(sb.Length == 0)
+                result += length;
+        }
+
+        return result;
+    }
+}
