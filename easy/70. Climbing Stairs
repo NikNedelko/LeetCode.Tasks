@@ -1,0 +1,14 @@
+public class Solution {
+    public int ClimbStairs(int n) {
+        if(n < 3) return n;
+        var arr = new int[n + 1];
+        arr[arr.Length - 1] = 1;
+        arr[arr.Length - 2] = 1;
+
+        for(int i = arr.Length - 3; i >= 0; i--){
+            arr[i] = arr[i + 1] + arr[i + 2];
+        }
+
+        return arr[0];
+    }
+}
