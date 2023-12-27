@@ -1,0 +1,38 @@
+public class Solution {
+    public string[] FindWords(string[] words) {
+        var result = new List<string>();
+
+        foreach(var word in words){
+            var lower = word.ToLower();
+            
+            for(int i = 0; i < word.Length; i++){
+                if(!"qwertyuiop".Contains(lower[i]))
+                    break;
+
+                if(i + 1 == word.Length){
+                    result.Add(word);
+                }
+            }
+
+            for(int i = 0; i < word.Length; i++){
+                if(!"asdfghjkl".Contains(lower[i]))
+                    break;
+                    
+                if(i + 1 == word.Length){
+                    result.Add(word);
+                }
+            }
+
+            for(int i = 0; i < word.Length; i++){
+                if(!"zxcvbnm".Contains(lower[i]))
+                    break;
+                    
+                if(i + 1 == word.Length){
+                    result.Add(word);
+                }
+            }
+        }
+
+        return result.ToArray();
+    }
+}
