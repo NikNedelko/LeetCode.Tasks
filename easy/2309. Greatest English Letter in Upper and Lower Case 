@@ -1,0 +1,19 @@
+public class Solution {
+    public string GreatestLetter(string s) {
+        var sb = new StringBuilder();
+        var uniqueChars = s
+            .Where(char.IsLower)
+            .GroupBy(letter => letter)
+            .Select(group =>group.First())
+            .OrderByDescending(x=>x)
+            .ToArray();
+        
+        foreach(var letter in uniqueChars)
+        {
+            if (s.Contains(char.ToUpper(letter)))
+                sb.Append(letter);
+        }
+
+        return  sb.Length > 0 ? sb[0].ToString().ToUpper() : "";
+    }
+}
