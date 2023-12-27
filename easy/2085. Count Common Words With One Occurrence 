@@ -1,0 +1,16 @@
+public class Solution {
+    public int CountWords(string[] words1, string[] words2) {
+        var result = 0;
+        var uniqueWords = words1
+            .GroupBy(word => word)
+            .Where(group => group.Count() == 1)
+            .Select(x=>x.Key);
+        
+        foreach(var word in uniqueWords){
+            if(words2.Count(x => x == word) == 1)
+                result++;
+        }
+
+        return result;
+    }
+}
