@@ -1,0 +1,13 @@
+public class Solution {
+    public int CommonFactors(int a, int b) {
+        var result = 0;
+        var target = a > b? a : b;
+        while(target > 0){
+            if(a % target == 0 && b % target == 0)
+                result++;
+
+            target--;
+        }
+        return result;
+    }
+}
