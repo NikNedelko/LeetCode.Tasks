@@ -1,0 +1,25 @@
+public class Solution {
+    public int PivotInteger(int n) {
+        var firstSum = 0;
+        var secondSum = 0;
+
+        for(int i = 0; i <= n; i++ ){
+
+            for(int j = 0; j <= i; j++){
+                firstSum += j;
+            }
+
+            for(int k = i; k <= n; k++){
+                secondSum += k;
+            }
+
+            if(firstSum == secondSum)
+                return i;
+
+            firstSum = 0;
+            secondSum = 0;
+        }
+
+        return -1;
+    }
+}
