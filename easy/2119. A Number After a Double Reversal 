@@ -1,0 +1,26 @@
+public class Solution {
+    public bool IsSameAfterReversals(int num) {
+        var text = Convert.ToString(num);
+        char[] cArray = text.ToCharArray();
+
+        string reverse = String.Empty;
+        for (int i = cArray.Length - 1; i > -1; i--)
+        {
+            reverse += cArray[i];
+        }
+
+        var newNum = Convert.ToInt32(reverse);
+
+        var text2 = Convert.ToString(newNum);
+        char[] cArray2 = text2.ToCharArray();
+
+        string original = String.Empty;
+
+        for (int i = cArray2.Length - 1; i > -1; i--)
+        {
+            original += cArray2[i];
+        }
+
+        return num == Convert.ToInt32(original);
+    }
+}
