@@ -1,0 +1,27 @@
+
+public class Solution {
+    public int FindContentChildren(int[] g, int[] s) {
+        var result = 0;
+
+        Array.Sort(g);
+        Array.Sort(s);
+
+        var hashKids = new HashSet<int>();
+        var hashCookies = new HashSet<int>();
+
+        for(int i = 0; i < g.Length; i++ )
+        {
+            for(int j = 0; j < s.Length; j++ )
+            {
+                if(g[i] <= s[j] && !hashKids.Contains(i) && !hashCookies.Contains(j))
+                {
+                    result++;
+                    hashKids.Add(i);
+                    hashCookies.Add(j);
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+}
