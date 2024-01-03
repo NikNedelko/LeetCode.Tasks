@@ -1,28 +1,33 @@
 using System.Collections.ObjectModel;
 
 public class Solution {
-    public IList<IList<int>> FindMatrix(int[] nums) {
+    public IList<IList<int>> FindMatrix(int[] nums) 
+    {
         Array.Sort(nums);
 
         var result = new Collection<IList<int>>();
         var hash = new HashSet<int>();
 
-        var mark = 0;
-        while(hash.Count != nums.Length)
-        {
-            mark = 0;
-            var subNums = new List<int>();
+        var index = 0;
 
-            for(int i = 0; i < nums.Length; i++)
+        result.Add(new List<int>());
+        
+        foreach (var number in nums)
+        {
+            if(!hash.Contains(number))
             {
-                if(mark != nums[i] && !hash.Contains(i))
-                {
-                    subNums.Add(nums[i]);
-                    hash.Add(i);
-                    mark = nums[i];
-                }
+                result[0].Add(number);
+                index = 1;
+                hash.Add(number);
             }
-            result.Add(subNums);
+            else
+            {
+                if(result.Count - 1 < index)
+                    result.Add(new List<int>());
+
+                result[index].Add(number);
+                index++;
+            }
         }
 
         return result;
