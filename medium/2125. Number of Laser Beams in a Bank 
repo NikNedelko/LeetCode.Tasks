@@ -1,0 +1,32 @@
+public class Solution {
+    public int NumberOfBeams(string[] bank) 
+    {
+        var result = 0;
+        var list = new List<int>();
+        var intRaw = 0;
+
+        var previous = 0;
+        var index = 1;
+        foreach(var raw in bank)
+        {
+            for(int i = 0; i < raw.Length; i++)
+            {
+                if(raw[i] == '1')
+                    intRaw++;
+            }
+
+            if(intRaw != 0)
+                list.Add(intRaw);
+
+
+            if(list.Count >= 2 && intRaw != 0){
+                result += list[index] * list[index - 1];
+                index ++;
+            }
+
+            intRaw = 0;
+        }
+
+        return result;
+    }
+}
