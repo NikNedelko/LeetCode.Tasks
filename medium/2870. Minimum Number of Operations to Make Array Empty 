@@ -1,0 +1,25 @@
+public class Solution {
+    public int MinOperations(int[] nums) 
+    {
+        var result = 0;
+
+        var dict = new Dictionary<int,int>();
+
+        foreach(var num in nums)
+        {
+            if(!dict.TryAdd(num, 1))
+                dict[num]++;
+        }
+
+        if (dict.Any(x => x.Value == 1))
+            return -1;
+            
+        foreach(var kvp in dict)
+        {
+            
+            result += (int)Math.Ceiling(kvp.Value / 3.0);
+        }
+
+        return result;
+    }
+}
