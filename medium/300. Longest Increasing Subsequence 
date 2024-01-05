@@ -1,0 +1,23 @@
+public class Solution {
+    public int LengthOfLIS(int[] nums) 
+    {
+        var subArr = new int[nums.Length];
+        Array.Fill(subArr, 1);
+
+        for(var i = 0; i < nums.Length; i++)
+        {
+            for (var j = 0; j <= i; j++)
+            {
+                if (nums[i] > nums[j])
+                {
+                    if (subArr[j] + 1 > subArr[i])
+                    {
+                        subArr[i] = subArr[j] + 1;
+                    }
+                }
+            }
+        }
+
+        return subArr.OrderByDescending(x=>x).FirstOrDefault();
+    }
+}
