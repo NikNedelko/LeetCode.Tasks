@@ -1,0 +1,75 @@
+public class Solution {
+    public IList<IList<int>> FindDifference(int[] nums1, int[] nums2) 
+    {
+        var nums1Set = nums1.ToHashSet();
+        var nums2Set = nums2.ToHashSet();
+        var result = new List<IList<int>>
+        {
+            new List<int>(),
+            new List<int>()
+        };
+
+        for(int i = 0, j = 0; i < nums1Set.Count || j < nums2Set.Count; )
+        {
+            if(i < nums1Set.Count)
+            {
+                var f = nums1Set.Skip(i).Take(1).First();
+                if(!nums2Set.Contains(f))
+                    result[0].Add(f);
+                i++;
+            }
+
+            if(j < nums2Set.Count)
+            {
+                var s = nums2Set.Skip(j).Take(1).First();
+                if(!nums1Set.Contains(s))
+                    result[1].Add(s);
+
+                j++;
+            }
+        }
+
+        return result;
+    }
+}
+
+public class Solution {
+    public IList<IList<int>> FindDifference(int[] nums1, int[] nums2) 
+    {
+        var result = new List<IList<int>>
+        {
+            new List<int>(),
+            new List<int>()
+        };
+        
+        nums1 = nums1.GroupBy(num => num)
+            .Select(group =>group.First())
+            .OrderBy(x=>x)
+            .ToArray();
+
+        nums2 = nums2.GroupBy(num => num)
+            .Select(group => group.First())
+            .OrderBy(x => x)
+            .ToArray();
+
+        for(int i = 0, j = 0; i < nums1.Length || j < nums2.Length; )
+        {
+            if(i < nums1.Length)
+            {
+                if(!nums2.Contains(nums1[i]))
+                    result[0].Add(nums1[i]);
+                i++;
+            }
+
+            if(j < nums2.Length)
+            {
+                if(!nums1.Contains(nums2[j]))
+                    result[1].Add(nums2[j]);
+
+                j++;
+            }
+        }
+
+        return result;
+    }
+}
