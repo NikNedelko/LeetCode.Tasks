@@ -1,0 +1,14 @@
+public class Solution {
+    public int CountSeniors(string[] details) {
+        var result = 0;
+        var ages = details.Select(x => x.SkipLast(2).TakeLast(2).ToArray()).ToArray();
+
+        foreach (var enu in ages)
+        {
+            if (Convert.ToInt32(Convert.ToString(enu[0]) + Convert.ToString(enu[1])) > 60)
+                result++;
+        }
+        
+        return result;
+    }
+}
