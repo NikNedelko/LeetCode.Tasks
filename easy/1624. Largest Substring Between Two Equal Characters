@@ -1,0 +1,43 @@
+public class Solution {
+    public int MaxLengthBetweenEqualCharacters(string s) 
+    {
+        var lr = new Dictionary<char,int>();
+        var rl = new Dictionary<char,int>();
+
+        for(int i = 0, j= s.Length - 1; i < j; i++, j--)
+        {
+            if(!lr.ContainsKey(s[i]))
+            {
+                lr.Add(s[i], i);
+            }
+
+            if(!rl.ContainsKey(s[j]) )
+            {
+                rl.Add(s[j], j);
+            }
+        }
+        var result = -1;
+
+        foreach(var kv in lr)
+        {
+            if(rl.ContainsKey(kv.Key))
+            {
+                var preResult = -1;
+                if(kv.Value > rl[kv.Key])
+                {
+                    preResult = (1 + kv.Value) - (1 + rl[kv.Key]) - 1 ;
+                    if(preResult > result)
+                        result = preResult;
+                }
+                else
+                {
+                    preResult = (1 + rl[kv.Key]) - (1 + kv.Value) - 1 ;
+                    if(preResult > result)
+                        result = preResult;
+                }
+            }
+        }
+
+        return result;
+    }
+}
