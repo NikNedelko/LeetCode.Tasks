@@ -1,0 +1,24 @@
+public class Solution {
+    public string LargestGoodInteger(string num) 
+    {
+        var sb = new StringBuilder();
+        var result = "";
+
+        if(num.Length < 3)
+            return result;
+        
+        for(int i = 0; i < num.Length - 2; i++)
+        {
+            if(num[i] == num[i + 1] && num[i] == num[i + 2])
+            {
+                sb.Append(new []{num[i], num[i + 1],  num[i +2]});
+                if(Convert.ToInt32(result == "" ? 0 : result) <= Convert.ToInt32(sb.ToString()))
+                    result = sb.ToString();
+                
+            }
+            sb.Clear();
+        }
+
+        return result;
+    }
+}
