@@ -1,0 +1,6 @@
+public class Solution {
+    public int MinimizedStringLength(string s) {
+        var hash = s.ToHashSet();
+        return hash.Count();
+    }
+}
