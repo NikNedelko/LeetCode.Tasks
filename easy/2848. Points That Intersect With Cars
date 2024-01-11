@@ -1,0 +1,28 @@
+public class Solution {
+    public int NumberOfPoints(IList<IList<int>> nums) 
+    {
+        var sortedList = nums.OrderBy(x => x[0]).ToList();
+        var result = sortedList[0][1] - sortedList[0][0] + 1;
+
+        var lastNum = sortedList[0][1];
+
+        for(int i = 1; i < sortedList.Count; i++)
+        {
+            if (sortedList[i][0] <= lastNum
+                && sortedList[i][1] > lastNum)
+            {
+                result += sortedList[i][1] - lastNum;
+                lastNum = sortedList[i][1];
+            }
+                
+            
+            else if(sortedList[i][0] > lastNum)
+            {
+                result += sortedList[i][1] -  sortedList[i][0] + 1;
+                lastNum = sortedList[i][1];
+            }
+        }
+
+        return result;
+    }
+}
