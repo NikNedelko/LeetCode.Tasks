@@ -1,0 +1,81 @@
+public class Solution {
+    public IList<int> TwoOutOfThree(int[] nums1, int[] nums2, int[] nums3) 
+    {
+        var result = new List<int>();
+
+        var hash1 = nums1.ToHashSet();
+        var hash2 = nums2.ToHashSet();
+        var hash3 = nums3.ToHashSet();
+        var hashNR = new HashSet<int>();
+
+        foreach(var num in hash1)
+        {
+            if(hash2.Contains(num) && hash3.Contains(num))
+            {
+                if(!hashNR.Contains(num))
+                {
+                    result.Add(num);
+                    hashNR.Add(num);
+                }
+                continue;
+            }
+
+            if(hash2.Contains(num) || hash3.Contains(num))
+            {
+                if(!hashNR.Contains(num))
+                {
+                    result.Add(num);
+                    hashNR.Add(num);
+                }
+                continue;
+            }
+        }
+        foreach(var num in hash2)
+        {
+            if(hash1.Contains(num) && hash3.Contains(num))
+            {
+                if(!hashNR.Contains(num))
+                {
+                    result.Add(num);
+                    hashNR.Add(num);
+                }
+                continue;
+            }
+
+            if(hash1.Contains(num) || hash3.Contains(num))
+            {
+                if(!hashNR.Contains(num))
+                {
+                    result.Add(num);
+                    hashNR.Add(num);
+                }
+                continue;
+            }
+        }
+        foreach(var num in hash3)
+        {
+            if(hash1.Contains(num) && hash2.Contains(num))
+            {
+                if(!hashNR.Contains(num))
+                {
+                    result.Add(num);
+                    hashNR.Add(num);
+                }
+                continue;
+            }
+
+            if(hash1.Contains(num) || hash2.Contains(num))
+            {
+                if(!hashNR.Contains(num))
+                {
+                    result.Add(num);
+                    hashNR.Add(num);
+                }
+                continue;
+            }
+        }
+
+        return result;
+    }
+
+}
