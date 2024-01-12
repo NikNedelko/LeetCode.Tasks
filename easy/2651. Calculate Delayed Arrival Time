@@ -1,0 +1,10 @@
+public class Solution {
+    public int FindDelayedArrivalTime(int arrivalTime, int delayedTime) 
+    {
+        arrivalTime += delayedTime;
+        while(arrivalTime > 23)
+            arrivalTime -= 24;
+
+        return arrivalTime;
+    }
+}
