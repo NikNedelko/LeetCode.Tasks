@@ -1,0 +1,39 @@
+public class Solution {
+    public int MinSteps(string s, string t) 
+    {
+        var fDict = new Dictionary<char, int>();
+        var sDict = new Dictionary<char, int>();
+
+        for (int i = 0; i < s.Length; i++)
+        {
+            if (fDict.ContainsKey(s[i]))
+                fDict[s[i]]++;
+            else
+                fDict.Add(s[i], 1);
+
+            if (sDict.ContainsKey(t[i]))
+                sDict[t[i]]++;
+            else
+                sDict.Add(t[i], 1);
+        }
+
+        var count = 0;
+
+        foreach (var kv in fDict)
+        {
+            if (sDict.ContainsKey(kv.Key))
+            {
+                if (sDict[kv.Key] < kv.Value)
+                    count +=
+                        sDict[kv.Key] - kv.Value > 0
+                            ? sDict[kv.Key] - kv.Value
+                            : kv.Value - sDict[kv.Key];
+                sDict.Remove(kv.Key);
+            }
+            else
+                count += kv.Value;
+        }
+
+        return count;
+    }
+}
