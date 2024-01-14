@@ -1,0 +1,46 @@
+public class Solution {
+    public bool CloseStrings(string word1, string word2) 
+    {
+        if(word1.Length != word2.Length)
+            return false;
+
+        var fDict = new Dictionary<char, int>();
+        var sDict = new Dictionary<char, int>();
+
+        for (int i = 0; i < word1.Length; i++)
+        {
+            if (fDict.ContainsKey(word1[i]))
+                fDict[word1[i]]++;
+            else
+                fDict.Add(word1[i], 1);
+
+            if (sDict.ContainsKey(word2[i]))
+                sDict[word2[i]]++;
+            else
+                sDict.Add(word2[i], 1);
+        }
+
+        var list1 = new List<int>();
+        foreach(var kv in fDict)
+        {
+            list1.Add(kv.Value);
+            
+            if(!sDict.ContainsKey(kv.Key))
+                return false;
+        }
+        list1.Sort();
+
+        var list2 = new List<int>();
+        foreach(var kv in sDict)
+        {
+            list2.Add(kv.Value);
+
+            if(!fDict.ContainsKey(kv.Key))
+                return false;
+        }
+        list2.Sort();
+
+
+        return list1.SequenceEqual(list2);
+    }
+}
