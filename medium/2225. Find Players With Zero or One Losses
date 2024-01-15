@@ -1,0 +1,42 @@
+using System.Collections.ObjectModel;
+
+public class Solution {
+    public IList<IList<int>> FindWinners(int[][] matches) 
+    {
+        var result = new Collection<IList<int>>
+        {
+            new List<int>(),
+            new List<int>()
+        };
+
+        var fDict = new Dictionary<int,int>();
+        var sDict = new Dictionary<int,int>();
+
+        foreach(var arr in matches)
+        {
+            if(!fDict.ContainsKey(arr[0]))
+                fDict.Add(arr[0], 1);
+            else
+                fDict[arr[0]]++;
+
+            if(!sDict.ContainsKey(arr[1]))
+                sDict.Add(arr[1], 1);
+            else
+                sDict[arr[1]]++;
+        }
+
+        result[0] = fDict
+            .Where(x => !sDict.ContainsKey(x.Key))
+            .Select(x => x.Key)
+            .OrderBy(x => x)
+            .ToList();
+
+        result[1] = sDict
+            .Where(x => x.Value == 1)
+            .Select(x => x.Key)
+            .OrderBy(x => x)
+            .ToList();
+        
+        return result;
+    }
+}
