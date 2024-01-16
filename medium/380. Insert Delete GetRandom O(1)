@@ -1,0 +1,49 @@
+public class RandomizedSet 
+{
+    private HashSet<int> hash;
+    private Random random;
+
+    public RandomizedSet() 
+    {
+        hash = new HashSet<int>();
+        random = new Random();
+    }
+    
+    public bool Insert(int val) 
+    {
+        if(hash.Contains(val))
+            return false;
+
+        hash.Add(val);
+        return true;
+    }
+    
+    public bool Remove(int val) 
+    {
+        if(hash.Contains(val))
+        {
+            hash.Remove(val);
+            return true;
+        }
+        return false;
+    }
+    
+    public int GetRandom() 
+    {
+        if(hash.Count >= 1)
+        {
+            var array = hash.ToArray();
+            return array[random.Next(0, array.Length)];
+        }
+
+        return -1;
+    }
+}
+
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * RandomizedSet obj = new RandomizedSet();
+ * bool param_1 = obj.Insert(val);
+ * bool param_2 = obj.Remove(val);
+ * int param_3 = obj.GetRandom();
+ */
