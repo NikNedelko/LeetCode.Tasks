@@ -1,0 +1,30 @@
+public class Solution {
+    public int MaxFrequencyElements(int[] nums) 
+    {
+        var max = 0;
+        var dict = new Dictionary<int,int>();
+
+        foreach(var num in nums)
+        {
+            if(!dict.ContainsKey(num))
+            {
+                dict.Add(num,1);
+                if(dict[num] > max)
+                    max = dict[num];
+            }
+            else
+            {
+                dict[num]++;
+                if(dict[num] > max)
+                    max = dict[num];
+            }
+        }
+        var sum = 0;
+
+        foreach(var kv in dict)
+            if(kv.Value == max)
+                sum += kv.Value;
+
+        return sum;
+    }
+}
