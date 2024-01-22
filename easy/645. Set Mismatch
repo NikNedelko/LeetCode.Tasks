@@ -1,0 +1,23 @@
+public class Solution {
+    public int[] FindErrorNums(int[] nums) 
+    {
+        var result = new int[2];
+        var dict = new int[nums.Length + 1];
+
+        for(var i = 0; i < nums.Length; i++)
+        {
+            dict[nums[i]]++;
+            if(dict[nums[i]] > 1)
+                result[0] = nums[i];
+        }
+        for(var i = 1; i <= dict.Length; i++)
+        {
+            if(dict[i] == 0)
+            {
+                result[1] = i;
+                return result;
+            }
+        }
+        return result;
+    }
+}
