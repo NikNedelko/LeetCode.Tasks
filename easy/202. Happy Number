@@ -1,0 +1,22 @@
+public class Solution {
+    public bool IsHappy(int n) {
+        var counter = 0;
+        var result = 0;
+        while(counter < 10){
+            var nums = Convert.ToString(n).ToArray();
+
+            for(int i = 0; i < nums.Length; i++){
+                var val = Convert.ToInt32(Convert.ToString(nums[i]));
+                result += (val * val);
+            }
+            if(result == 1)
+                return true;
+
+            n = result;
+            result = 0;
+            counter++;
+        }
+
+        return false;
+    }
+}
