@@ -1,0 +1,19 @@
+public class Solution {
+    public string KthDistinct(string[] arr, int k) {
+        var dict = new Dictionary<string, int>();
+
+        for(var i = 0; i < arr.Length; i++){
+            if(dict.ContainsKey(arr[i]))
+                dict[arr[i]]++;
+            else
+                dict.Add(arr[i], 1);
+        }
+
+        foreach(var kv in dict){
+            if(kv.Value == 1 && --k == 0)
+                return kv.Key;
+        }
+
+        return "";
+    }
+}
