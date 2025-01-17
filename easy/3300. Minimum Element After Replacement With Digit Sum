@@ -1,0 +1,19 @@
+public class Solution {
+    public int MinElement(int[] nums) {
+        var result = nums[0];
+
+        for(var i = 0; i < nums.Length; i++){
+            var str = nums[i].ToString();
+            var res = 0;
+
+            for(int j = 0; j < str.Length; j++){
+                res += str[j] - '0';
+            }
+            
+            if(result > res)
+                result = res;
+        }
+
+        return result;
+    }
+}
