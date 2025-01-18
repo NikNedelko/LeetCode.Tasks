@@ -1,0 +1,11 @@
+public class Solution {
+    public int SumOfTheDigitsOfHarshadNumber(int x) {
+        var sum = 0;
+
+        foreach(var ch in x.ToString()){
+            sum += ch - '0';
+        }
+
+        return x % sum == 0 ? sum : -1;
+    }
+}
