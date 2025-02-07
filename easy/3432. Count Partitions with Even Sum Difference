@@ -1,0 +1,17 @@
+public class Solution {
+    public int CountPartitions(int[] nums) {
+        var result = 0;
+        var rSum = nums.Sum();
+        var lSum = 0;
+
+        for(var i = 0; i < nums.Length - 1; i++){
+            rSum += nums[i];
+            lSum -= nums[i];
+
+            if(Math.Abs(rSum - lSum) % 2 == 0)
+                result++;
+        }
+
+        return result;
+    }
+}
