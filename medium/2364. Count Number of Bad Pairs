@@ -1,0 +1,21 @@
+public class Solution {
+    public long CountBadPairs(int[] nums) {
+        long length = nums.Length;
+        long gp = 0;
+        var dict = new Dictionary<int, int>();
+
+        for(var i = 0; i < length; i++){
+            var val = nums[i] - i;
+
+            if(dict.ContainsKey(val)){    
+                gp += dict[val];
+                dict[val]++;
+            }
+            else
+                dict.Add(val, 1);
+        }
+
+        long result = length * (length - 1) / 2 - gp ;
+        return result;
+    }
+}
