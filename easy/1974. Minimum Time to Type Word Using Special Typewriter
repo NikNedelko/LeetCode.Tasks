@@ -1,0 +1,15 @@
+public class Solution {
+    public int MinTimeToType(string word)  {
+        var result = 0;
+        var current = 'a';
+
+        foreach (char ch in word) {
+            var distance = Math.Abs(ch - current);
+
+            result += Math.Min(distance, 26 - distance) + 1; 
+            current = ch;
+        }
+
+        return result;
+    }
+}
