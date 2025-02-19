@@ -1,0 +1,26 @@
+public class Solution {
+    public int MinLength(string s) {
+        var stack = new Stack<char>();
+        var count = 0;
+
+        for(var i = 0; i < s.Length; i++){
+            if(count == 0){
+                stack.Push(s[i]);
+                count++;
+                continue;
+            }
+
+            if(s[i] == 'B' && stack.Peek() == 'A' || s[i] == 'D' && stack.Peek() == 'C'){
+                stack.Pop();
+                count--;
+                continue;
+            }
+            else{
+                stack.Push(s[i]);
+                count++;
+            }
+        }
+
+        return count;
+    }
+}
