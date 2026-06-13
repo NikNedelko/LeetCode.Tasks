@@ -1,0 +1,29 @@
+public class Solution {
+    public int MajorityElement(int[] nums) {
+        var dict = new Dictionary<int, int>();
+        var result = 0;
+        var isValueSet = false;
+        var arrSize = nums.Length;
+
+        for(var i = 0; i < nums.Length; i++){
+
+            if(!isValueSet){
+                result = nums[i];
+                isValueSet = true;
+            }
+
+            if(dict.ContainsKey(nums[i])){
+                dict[nums[i]]++;
+            }
+            else{
+                dict.Add(nums[i], 1);
+            }
+
+            if((arrSize / 2) < dict[nums[i]]){
+                result = nums[i];
+            }
+        }
+
+        return result;
+    }
+}
