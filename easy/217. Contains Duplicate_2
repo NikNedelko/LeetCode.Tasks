@@ -1,0 +1,8 @@
+public class Solution {
+    public bool ContainsDuplicate(int[] nums) {
+        var hash = new HashSet<int>(nums);
+
+        return hash.Count != nums.Length;
+    }
+}
+
