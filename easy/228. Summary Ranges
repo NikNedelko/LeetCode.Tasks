@@ -1,0 +1,30 @@
+public class Solution {
+    public IList<string> SummaryRanges(int[] nums) {
+        var result = new List<string>();
+        
+        if(nums.Length == 1){
+            result.Add($"{nums[0]}");
+
+            return result;
+        }
+        var num1 = 0;
+
+        for(var i = 1; i < nums.Length; i++){
+            if(nums[i] - nums[i - 1] != 1){
+                result.Add(ResultBuider(nums[num1], nums[i - 1]));
+                num1 = i;
+            }
+
+             if(i + 1 == nums.Length){
+                result.Add(ResultBuider(nums[num1], nums[i]));
+            }
+
+        }
+        
+        return result;
+    }
+
+    private string ResultBuider(int num1, int num2) => num1 == num2 
+                                                        ? $"{num1}" 
+                                                        : $"{num1}->{num2}";
+}
