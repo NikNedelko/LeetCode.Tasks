@@ -1,0 +1,10 @@
+public class Solution {
+    public int[] Intersection(int[] nums1, int[] nums2) {
+        var hash1 = new HashSet<int>(nums1);
+        var hash2 = new HashSet<int>(nums2);
+
+        return hash1.Where(x => hash2.Contains(x))
+                    .ToArray();
+    }
+}
+
