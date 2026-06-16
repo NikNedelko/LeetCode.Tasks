@@ -1,0 +1,26 @@
+#1
+public class Solution {
+    public int MissingNumber(int[] nums) {
+        Array.Sort(nums);
+
+        for(var i = 1; i < nums.Length; i++){
+            if(nums[i] - nums[i - 1] != 1)
+                return nums[i] - 1;
+        }
+
+        return nums[0] == 0 ? nums[^1] + 1 : 0;
+    }
+}
+#2
+public class Solution {
+    public int MissingNumber(int[] nums) {
+        int result = 0;
+
+        for(int i = 0; i < nums.Length; i++) {
+            result += i + 1;
+            result -= nums[i];
+        }
+
+        return result;
+    }
+}
