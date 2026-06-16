@@ -1,0 +1,19 @@
+public class Solution {
+    public void MoveZeroes(int[] nums) {
+        var q = new Queue<int>();
+
+        for(var i = 0; i < nums.Length; i++){
+            if(nums[i] != 0){
+                if(q.Count != 0){
+                    var position = q.Dequeue();
+                    nums[position] = nums[i];
+                    nums[i] = 0;
+                    q.Enqueue(i);
+                }
+            }
+            else{
+                q.Enqueue(i);
+            }
+        }
+    }
+}
