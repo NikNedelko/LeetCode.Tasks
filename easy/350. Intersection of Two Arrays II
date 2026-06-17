@@ -1,0 +1,24 @@
+public class Solution {
+    public int[] Intersect(int[] nums1, int[] nums2) {
+        var dict = new Dictionary<int, int>();
+        var result = new List<int>();
+
+        for(var i = 0; i < nums1.Length; i++){
+            if(dict.ContainsKey(nums1[i])){
+                dict[nums1[i]]++;    
+            }
+            else{
+                dict[nums1[i]] = 1;
+            }
+        }
+
+        foreach(var num in nums2){
+            if(dict.ContainsKey(num) && dict[num] > 0){
+                result.Add(num);
+                dict[num]--;
+            }
+        }
+
+        return result.ToArray();
+    }
+}
