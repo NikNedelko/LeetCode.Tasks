@@ -1,0 +1,14 @@
+public class Solution {
+    public IList<int> FindDisappearedNumbers(int[] nums) {
+        var hash = new HashSet<int>(nums);
+        var result = new List<int>();
+
+        for(var i = 1; i <= nums.Length; i++){
+            if(!hash.Contains(i)){
+                result.Add(i);
+            }
+        }
+
+        return result;
+    }
+}
