@@ -1,0 +1,33 @@
+public class Solution {
+    public int FindContentChildren(int[] g, int[] s) {
+        Array.Sort(g);
+        Array.Sort(s);
+        var result = 0;
+        for(var i = 0; i < g.Length; i++){
+            for(var j = 0; j < s.Length; j++){
+                if(s[j] >= g[i]){
+                    result++;
+                    s[j] = 0;
+                    j = s.Length;
+                }
+            }
+        }
+        return result;
+    }
+}
+
+public class Solution {
+    public int FindContentChildren(int[] g, int[] s) {
+        Array.Sort(g);
+        Array.Sort(s);
+        int result = 0, cookie = 0;;
+
+        while (result < g.Length && cookie < s.Length) {
+            if (s[cookie] >= g[result])
+                result++;   
+            cookie++;      
+    }
+
+        return result;
+    }
+}
