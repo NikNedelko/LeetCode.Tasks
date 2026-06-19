@@ -1,0 +1,24 @@
+public class Solution {
+    public bool IsValid(string s) {
+        var dict = new Dictionary<char, char>() { {'}', '{'}, {')', '('}, {']', '['} };
+        var stack = new Stack<char>();
+
+        foreach(var ch in s){
+            if(dict.ContainsKey(ch)){
+                if(stack.Count == 0)
+                    return false;
+
+                var previous = stack.Pop();
+                if(previous != dict[ch]){
+                    return false;
+                }
+            }
+            else{
+                stack.Push(ch);
+            }
+        }
+
+
+        return stack.Count == 0;
+    }
+}
