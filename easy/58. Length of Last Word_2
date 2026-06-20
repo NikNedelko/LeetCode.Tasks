@@ -1,0 +1,7 @@
+public class Solution {
+    public int LengthOfLastWord(string s) {
+        var split = s.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+        return split[^1].Length;
+    }
+}
