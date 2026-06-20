@@ -1,0 +1,25 @@
+public class Solution {
+    public bool IsPalindrome(string s) {
+        if(s.Length == 1)
+            return true;
+            
+        int p1 = 0, p2 = s.Length - 1;
+
+        while(p1 < p2){
+            while(p1 < p2 && !Char.IsLetterOrDigit(s[p1])){
+                p1++;
+            }
+            while(p1 < p2 && !Char.IsLetterOrDigit(s[p2])){
+                p2--;
+            }
+
+            if(Char.ToLower(s[p1]) != Char.ToLower(s[p2]))
+                return false;
+            
+            p1++;
+            p2--;
+        }
+
+        return true;
+    }
+}
