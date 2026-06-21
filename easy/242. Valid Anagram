@@ -1,0 +1,11 @@
+public class Solution {
+    public bool IsAnagram(string s, string t) {
+        if(s.Length != t.Length)
+            return false;
+
+        var arr1 = String.Concat(s.OrderBy(c => c));
+        var arr2 = String.Concat(t.OrderBy(c => c));
+
+        return arr1 == arr2;
+    }
+}
