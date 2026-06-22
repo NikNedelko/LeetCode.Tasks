@@ -1,0 +1,25 @@
+public class Solution {
+    public string ReverseVowels(string s) {
+        var vowels = new HashSet<char>() {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+
+        var p1 = 0;
+        var p2 = s.Length - 1;
+        var arr = s.ToCharArray();
+
+        while(p1 < p2 ){
+            while (p1 < p2 && !vowels.Contains(arr[p1]))
+                p1++;
+
+            while (p1 < p2 && !vowels.Contains(arr[p2]))
+                p2--;
+
+            if (p1 < p2) {
+                (arr[p1], arr[p2]) = (arr[p2], arr[p1]);
+                p1++;
+                p2--;
+            }
+        }
+
+        return new string(arr);
+    }
+}
