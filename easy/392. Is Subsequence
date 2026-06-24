@@ -1,0 +1,15 @@
+public class Solution {
+    public bool IsSubsequence(string s, string t) {
+        if(s.Length == 0 && t.Length == 0)
+            return true;
+
+        var counter = 0;
+
+        for(var i = 0; i < t.Length && counter < s.Length; i++){
+            if(t[i] == s[counter])
+                counter++;
+        }
+
+        return counter == s.Length;
+    }
+}
