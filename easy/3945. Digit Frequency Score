@@ -1,0 +1,23 @@
+public class Solution {
+    public int DigitFrequencyScore(int n) {
+        var dict = new Dictionary<char, int>();
+        var str = Convert.ToString(n);
+
+        for(var i = 0; i < str.Length; i++){
+            if(dict.ContainsKey(str[i])){
+                dict[str[i]]++;
+            }
+            else{
+                dict[str[i]] = 1;
+            }
+        }
+
+        var sum = 0;
+
+        foreach(var kv in dict){
+            sum += kv.Value * (kv.Key - '0'); 
+        }
+
+        return sum;
+    }
+}
